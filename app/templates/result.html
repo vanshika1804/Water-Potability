@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<br><br><br>
+
+<center><div class="card text-center" style="width: 60%;">
+    <div class="card-header">
+      <p style="font-size: 1.3em; font-weight: 600; margin-bottom: 0;">Predictions for Potability of Water</p>
+    </div>
+    <div class="card-body">
+        
+        {% for key, value in model_results.items %}
+        
+        <p class="card-title">{{key}} - 
+            {% if value == 'Negative' %}
+                <span style="color: red;">{{value}}</span>
+            {% else %}
+            <span style="color: green;">{{value}}</span>
+            {% endif %}
+        
+        </p>  
+        {% endfor %}
+      
+
+      <h5 class="card-text">Prediction Score: {{prediction_score}}</h5>
+      <h5 class="card-text" style="font-size: 1.5em;">Prediction Class: 
+        {% if prediction_class == 'Negative' %}  
+        <span style="color: red;">{{prediction_class}}</span>
+        {% else %}
+        <span style="color: green;">{{prediction_class}}</span>
+        </h5>
+        {% endif %}
+        <br>
+        
+    </div>
+    <div class="card-footer text-muted">
+        <a href="{% url 'home' %}" class="btn btn-primary">Go To Home</a>
+    </div>
+  </div>
+</center>
+{{results}}
+
+{% endblock %}

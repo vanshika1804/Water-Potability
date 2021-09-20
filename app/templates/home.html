@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+
+<style>
+    a{
+    color: #fff !important;
+}
+    input[type=checkbox] {
+        height: 30px;
+        margin-left: -260px;
+        /* left: -100px; */
+    }
+
+    input[type=checkbox]:checked {
+        height: 30px;
+        left: -100px;
+    }
+
+</style>
+
+<br>
+<center><h2 style="font-weight: 600;">Enter Data to get Predictions</h2></center>
+<br>
+<center>
+    <div class="form-div"
+        style="width: 700px;background-color: rgba(48, 91, 126, 0.836); margin-left: 50px; border-radius: 20px;">
+        <br>
+        <form style=" margin-left: 0px; width: 550px; text-align: left;" method="POST">
+            {% csrf_token %}
+            <div class="form-nest-div-1">
+                <div class="form-group">
+                    <label for="exampleInputEmail1"
+                        style="color: rgb(205, 225, 238); font-weight: 600; font-size: 1.15em;">pH</label>
+                    {{form.ph|add_class:'form-control'}}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1"
+                        style="color: rgb(205, 225, 238); font-weight: 600; font-size: 1.15em;">Hardness</label>
+                    {{form.hardness|add_class:'form-control'}}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1"
+                        style="color: rgb(205, 225, 238); font-weight: 600; font-size: 1.15em;">Solids</label>
+                    {{form.solids|add_class:'form-control'}}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1"
+                        style="color: rgb(205, 225, 238); font-weight: 600; font-size: 1.15em;">Chloramines</label>
+                    {{form.chloramines|add_class:'form-control'}}
+                </div>
+                
+                <div class="form-group">
+                    <label for="exampleInputEmail1"
+                        style="color: rgb(205, 225, 238); font-weight: 600; font-size: 1.15em;">Sulphate</label>
+                    {{form.sulphate|add_class:'form-control'}}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1"
+                        style="color: rgb(205, 225, 238); font-weight: 600; font-size: 1.15em;">Conductivity</label>
+                    {{form.conductivity|add_class:'form-control'}}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1"
+                        style="color: rgb(205, 225, 238); font-weight: 600; font-size: 1.15em;">Organic Carbon</label>
+                    {{form.organic_carbon|add_class:'form-control'}}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1"
+                        style="color: rgb(205, 225, 238); font-weight: 600; font-size: 1.15em;">Trihalomethanes</label>
+                    {{form.trihalomethanes|add_class:'form-control'}}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1"
+                        style="color: rgb(205, 225, 238); font-weight: 600; font-size: 1.15em;">Turbidity</label>
+                    {{form.turbidity|add_class:'form-control'}}
+                </div>
+                <br>
+            <center><input type="submit" class="btn" value="Submit"
+                style="background: rgb(255, 198, 10); color: #000; font-weight: 600; width: 500px;">
+            </center>
+                <br><br><br>
+        </form>
+        
+    </div>
+</center>
+<br>
+
+
+
+
+
+
+
+{% endblock %}
